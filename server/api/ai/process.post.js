@@ -18,7 +18,8 @@ export default defineEventHandler(async (event)=>{
 
     const new_worker = await sql`insert into worker(user_id, status) values(${userId}, ${"Started"}) returning id`
     console.log(new_worker[0].id)
-    const REPLICATE_API_TOKEN="r8_XxvRGFwbAdbkkj0BAH4oDUIm1gG3iYX1RbJQg"
+    const config = useRuntimeConfig()
+    const REPLICATE_API_TOKEN=config.replicate
     const replicate = new Replicate({
     auth: REPLICATE_API_TOKEN,
     });

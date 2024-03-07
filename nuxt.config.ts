@@ -5,7 +5,8 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "nuxt-icon"],
   nitro: {
     runtimeConfig: {
-      postgresConnectionString: process.env.CONNECTION_STRING
+      postgresConnectionString: process.env.CONNECTION_STRING,
+      replicate: process.env.REPLICATE_API_TOKEN
     },
     moduleSideEffects: ['lucia/polyfill/node']
   }
